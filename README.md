@@ -289,9 +289,17 @@ function FUNCTIONNAME(args)
 
 **Examples:**
 ```plaintext
-function myfunct()
-function function2(x)
-function doStuff(x, y, z)
+function myfunct()begin
+  // code
+end
+
+function function2(x)begin
+  // code
+end
+
+function doStuff(x, y, z)begin
+  // code
+end
 ```
 
 To execute the functions made use.
