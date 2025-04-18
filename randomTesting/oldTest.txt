@@ -1,0 +1,7 @@
+if readPin 8 == low begin
+    setPin 5,high
+    wait 2000
+end
+else 
+    setPin 5,low
+

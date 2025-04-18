@@ -1,0 +1,29 @@
+function myfunct() begin
+    togglePin 5
+    print("Toggled the LED!")
+    wait 10
+    while readPin 8 == low begin
+        wait 10
+    end
+end
+
+function anotherFunct() begin
+    print("Nothing is happening...")
+end
+
+
+GLOBAL x
+
+if readPin 8 == low begin
+myfunct()
+end
+
+if (x%20000) == 0 begin
+    anotherFunct()
+    x = 0
+end
+x = x + 1
+
+
+
+
