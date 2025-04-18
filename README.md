@@ -1,6 +1,3 @@
-Sure! Here's a nicely formatted README-style version of your documentation for **ArduScript**:
-
----
 
 # ArduScript
 
