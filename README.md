@@ -1,0 +1,292 @@
+Sure! Here's a nicely formatted README-style version of your documentation for **ArduScript**:
+
+---
+
+# ArduScript
+
+**ArduScript** is a simple scripting language designed to compile into Arduino IDE code. The main goal is to make microcontroller programming accessible for beginners by abstracting away complex features and focusing on ease of use.  
+> ⚠️ This is not a replacement for the Arduino IDE, but rather a tool to supplement learning for those new to microcontroller programming.
+
+---
+
+## 🧾 Table of Contents
+
+- [Getting Started](#getting-started)
+- [Language Features](#language-features)
+  - [Relational Operators](#relational-operators)
+  - [Mathematical Operators](#mathematical-operators)
+  - [Variables](#variables)
+  - [Global Variables](#global-variables)
+  - [If Statements](#if-statements)
+  - [Loops](#loops)
+  - [Pin Control](#pin-control)
+    - [setPin](#setpin)
+    - [readPin](#readpin)
+    - [togglePin](#togglepin)
+  - [Wait](#wait)
+  - [Print](#print)
+  - [Functions](#functions)
+
+---
+
+## 🏁 Getting Started
+
+Write your ArduScript code using basic syntax described below. Once written, compile it to Arduino code and upload it to your microcontroller through the Arduino IDE.
+
+---
+
+## 🔤 Language Features
+
+### Relational Operators
+
+Compare numbers or variables. Expressions are parsed left to right, with parentheses for precedence.
+
+**Available Operators:**
+- `<`  – less than  
+- `>`  – greater than  
+- `<=` – less than or equal  
+- `>=` – greater than or equal  
+- `==` – equal to  
+
+**Logical Operators:**
+- `and`
+- `or`
+- `not`
+
+---
+
+### Mathematical Operators
+
+Perform basic arithmetic.
+
+**Available Operators:**
+- `+`  – addition  
+- `-`  – subtraction  
+- `*`  – multiplication  
+- `/`  – division  
+- `%`  – remainder  
+
+---
+
+### Variables
+
+All variables are **integers** by default. Variables are **scoped** within blocks defined by `begin` and `end`.
+
+**Syntax:**
+```plaintext
+VARNAME = number or otherVar
+```
+
+**Examples:**
+```plaintext
+variable = x
+buttonPin = 27
+x = 25 + 7 * 10
+```
+
+---
+
+### Global Variables
+
+Make a variable accessible throughout the entire program.
+
+**Syntax:**
+```plaintext
+GLOBAL VARNAME
+```
+
+**Examples:**
+```plaintext
+GLOBAL counter
+GLOBAL variable
+```
+
+---
+
+### If Statements
+
+Control flow based on relational expressions.
+
+**Syntax:**
+```plaintext
+if RELATIONAL_EXPRESSION begin
+  // code
+end
+else begin
+  // code
+end
+```
+
+**Examples:**
+```plaintext
+if x == 17 begin
+  y = 4
+end
+else begin
+  y = 1
+end
+
+if x < 10 and y < 10 begin
+  x = x + 1
+end
+```
+
+---
+
+### Loops
+
+#### While Loop
+
+Runs while a condition is true.
+
+**Syntax:**
+```plaintext
+while EXPRESSION begin
+  // code
+end
+```
+
+**Example:**
+```plaintext
+while x < 5 begin
+  x = x + 1
+end
+```
+
+#### Loop (For Loop Equivalent)
+
+Runs a block a specific number of times.
+
+**Syntax:**
+```plaintext
+loop LENGTH begin
+  // code
+end
+```
+
+**Examples:**
+```plaintext
+loop 15 begin
+  x = x + 1
+end
+
+x = 10
+loop x begin
+  y = y * 2
+end
+```
+
+---
+
+### Pin Control
+
+#### setPin
+
+Set a pin to high or low.
+
+**Syntax:**
+```plaintext
+setPin PIN#, high/low/true/false
+```
+
+**Examples:**
+```plaintext
+setPin 5, high
+setPin x, low
+setPin 10, false
+```
+
+#### readPin
+
+Read input from a pin. Can be used in expressions or assignments.
+
+**Syntax:**
+```plaintext
+readPin PIN#
+```
+
+**Examples:**
+```plaintext
+if readPin 5 == low begin
+  x = 10
+end
+
+x = readPin 10  // returns 0 (low) or 1 (high)
+```
+
+#### togglePin
+
+Toggle a pin's output between high and low.
+
+**Syntax:**
+```plaintext
+togglePin PIN#
+```
+
+**Examples:**
+```plaintext
+togglePin 5
+togglePin buttonPin
+```
+
+---
+
+### wait
+
+Pause execution for a specified number of milliseconds.
+
+**Syntax:**
+```plaintext
+wait MS
+```
+
+**Examples:**
+```plaintext
+wait 500
+wait x
+```
+
+---
+
+### print
+
+Print to the serial monitor (9600 baud rate).
+
+**Syntax:**
+```plaintext
+print("text")
+print(VARNAME)
+```
+
+**Examples:**
+```plaintext
+print("Hello World!")
+print(x)
+```
+
+---
+
+### Functions
+
+Define reusable code blocks.
+
+**Syntax:**
+```plaintext
+function FUNCTIONNAME(args)
+```
+
+**Examples:**
+```plaintext
+function myfunct()
+function function2(x)
+function doStuff(x, y, z)
+```
+
+To execute the functions made use.
+
+**Examples:**
+```plaintext
+doStuff(x,y,z)
+myfunct()
+```
+
