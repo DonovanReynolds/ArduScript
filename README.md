@@ -1,6 +1,3 @@
-Sure! Here's a nicely formatted README-style version of your documentation for **ArduScript**:
-
----
 
 # ArduScript
 
@@ -31,7 +28,22 @@ Sure! Here's a nicely formatted README-style version of your documentation for *
 
 ## 🏁 Getting Started
 
-Write your ArduScript code using basic syntax described below. Once written, compile it to Arduino code and upload it to your microcontroller through the Arduino IDE.
+To run an ArduScript file, use the provided shell command in your terminal or command prompt.
+
+### ✅ Usage
+
+```bash
+./compile.sh myscript.ard
+```
+
+- Replace `myscript.ard` with the name of your ArduScript file.
+- The compiler will generate an output file containing equivalent Arduino C++ code.
+
+### 🚀 Uploading to Arduino
+
+The output file can currently be **copy-pasted into the Arduino IDE**. From there, you can upload it directly to your microcontroller.
+
+> ⚠️ Make sure your board and port are correctly selected in the Arduino IDE before uploading.
 
 ---
 
