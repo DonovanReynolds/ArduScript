@@ -59,7 +59,11 @@ finalText+=("void loop() {\n")
 
 #Here is main or "loop" in arduino
 mainPrinter = ArduScriptVisitor()
-mainPrinter.variables.update(printer.globalVars)
+
+for i in printer.globalVars:
+    mainPrinter.variables.add(i)
+
+    
 for child in tree.getChildren():
     if type(child) == ArduScriptParser.FunctionContext:
         continue

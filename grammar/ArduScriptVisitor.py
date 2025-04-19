@@ -27,7 +27,7 @@ class ArduScriptVisitor(ParseTreeVisitor):
         return self.globalCounter
     
     def visitGlobal(self,ctx:ArduScriptParser.GlobalContext):
-        self.globalVars.add(ctx.ID())
+        self.globalVars.add(ctx.ID().getText())
     
     def visitFunction(self,ctx:ArduScriptParser.FunctionContext):
         for i,argument in enumerate(ctx.ID()):
@@ -62,7 +62,7 @@ class ArduScriptVisitor(ParseTreeVisitor):
         self.outputText += ('{\n')
         self.visitChildren(ctx)
         self.outputText += ('}\n')
-        self.variables = self.variables.intersection(self.scopedVars)   #Intersect the variable sets to get the old scoping
+        self.variables = self.variables & self.globalVars #Take the intersection
 
         
 
@@ -75,6 +75,7 @@ class ArduScriptVisitor(ParseTreeVisitor):
             self.outputText += (f'int {ctx.ID()} = {self.visit(ctx.a())};\n')
         self.variables.add(ctx.ID().getText())
 
+
             
         
 
@@ -86,7 +87,6 @@ class ArduScriptVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by ArduScriptParser#If.
     def visitIf(self, ctx:ArduScriptParser.IfContext):
-        
         self.outputText += (f"if ({self.visit(ctx.b())})")
         self.visit(ctx.block(0))
         if (len(ctx.children) > 3):
@@ -139,17 +139,14 @@ class ArduScriptVisitor(ParseTreeVisitor):
         self.outputText += (f'digitalWrite({self.visit(ctx.a())},!digitalRead({self.visit(ctx.a())}));\n')
         
         if (self.visit(ctx.a()) not in self.pinStates.keys()):
-            #self.outputText += (f'digitalWrite({self.visit(ctx.a())},HIGH);\n')
             self.pinStates[self.visit(ctx.a())] = True
             self.usedPins[self.visit(ctx.a())] = 'Write'
 
             return
                 
         if (self.pinStates[self.visit(ctx.a())]):
-            #self.outputText += (f'digitalWrite({self.visit(ctx.a())},LOW);\n')
             self.pinStates[self.visit(ctx.a())] = False
         else:
-            #self.outputText += (f'digitalWrite({self.visit(ctx.a())},HIGH);\n')
             self.pinStates[self.visit(ctx.a())] = True
         self.usedPins[self.visit(ctx.a())] = 'Write'
 
