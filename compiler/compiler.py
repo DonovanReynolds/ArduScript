@@ -34,7 +34,11 @@ finalText = ""
 result = printer.visit(tree)
 
 for globalVar in printer.globalVars:
-    finalText += f'int {globalVar};\n'
+    finalText += f'int {globalVar} = {printer.globalVars[globalVar]};\n'
+    
+
+    
+    
 
 #Print all of the functions
 for child in tree.getChildren():
@@ -59,11 +63,10 @@ finalText+=("void loop() {\n")
 
 #Here is main or "loop" in arduino
 mainPrinter = ArduScriptVisitor()
+mainPrinter.variables.update(printer.globalVars.keys())
 
-for i in printer.globalVars:
-    mainPrinter.variables.add(i)
 
-    
+
 for child in tree.getChildren():
     if type(child) == ArduScriptParser.FunctionContext:
         continue

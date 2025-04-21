@@ -134,6 +134,15 @@ class ArduScriptListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by ArduScriptParser#Pin.
+    def enterPin(self, ctx:ArduScriptParser.PinContext):
+        pass
+
+    # Exit a parse tree produced by ArduScriptParser#Pin.
+    def exitPin(self, ctx:ArduScriptParser.PinContext):
+        pass
+
+
     # Enter a parse tree produced by ArduScriptParser#High.
     def enterHigh(self, ctx:ArduScriptParser.HighContext):
         pass

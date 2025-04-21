@@ -17,7 +17,8 @@ s:   ID '=' (a|b) # Assignment
    | 'wait' a #Wait
    | 'print(' (STRING | a)')' #Print 
    | ID '(' (ID (',' ID)*)? ')' #CallFunction
-   | 'GLOBAL' ID #Global
+   | 'GLOBAL' ID '=' a #Global
+   | 'pin' ID '=' a #Pin
    ;
 
 b:   'true' # True
