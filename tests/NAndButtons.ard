@@ -1,0 +1,13 @@
+pin button1 = 12
+pin button2 = 10
+pin redLED = 2
+pin greenLED = 3
+pin blueLED = 4
+
+
+if (readPin button1 == high) and (readPin button2 == high) begin
+    setPin blueLED,high
+end
+else begin
+    setPin blueLED,low
+end

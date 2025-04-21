@@ -1,0 +1,4 @@
+GLOBAL x = 0
+x = x + 1
+print("The value of x is")
+print(x)

@@ -1,0 +1,13 @@
+pin button1 = 12
+pin button2 = 10
+pin redLED = 2
+pin greenLED = 3
+pin blueLED = 4
+pin motor = 22
+
+if readPin button1 == 0 begin
+    setPin motor, high
+end
+else begin
+    setPin motor, low
+end

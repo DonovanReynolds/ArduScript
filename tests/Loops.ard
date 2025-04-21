@@ -1,0 +1,32 @@
+pin button1 = 12
+pin button2 = 10
+pin redLED = 2
+pin greenLED = 3
+pin blueLED = 4
+
+
+x = 0
+y = 0
+
+if (readPin button1 == low) begin
+    print("Entering while loop...")
+    while (readPin button1 == low) begin
+        y = y + 1
+        setPin redLED,high
+        print(y)
+        wait 10
+    end
+end
+
+if (readPin button2 == low) begin
+    print("Entering loop...")
+    loop 20 begin
+        x = x + 2
+        print(x)
+        wait 10
+    end
+    while (readPin button2 == low) begin end
+end
+wait 100
+setPin redLED,low
+

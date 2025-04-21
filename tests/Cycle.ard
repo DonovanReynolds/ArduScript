@@ -1,0 +1,13 @@
+pin button1 = 12
+pin button2 = 10
+pin redLED = 2
+pin greenLED = 3
+pin blueLED = 4
+
+
+togglePin redLED
+wait 500
+togglePin greenLED
+wait 500
+togglePin blueLED
+wait 500
