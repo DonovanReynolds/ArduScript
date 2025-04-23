@@ -8,21 +8,22 @@
 
 ## 🧾 Table of Contents
 
-- [Getting Started](#getting-started)
-- [Language Features](#language-features)
-  - [Relational Operators](#relational-operators)
-  - [Mathematical Operators](#mathematical-operators)
-  - [Variables](#variables)
-  - [Global Variables](#global-variables)
-  - [If Statements](#if-statements)
-  - [Loops](#loops)
-  - [Pin Control](#pin-control)
-    - [setPin](#setpin)
-    - [readPin](#readpin)
-    - [togglePin](#togglepin)
-  - [Wait](#wait)
-  - [Print](#print)
-  - [Functions](#functions)
+- [Getting Started]
+- [Language Features]
+  - [Relational Operators]
+  - [Mathematical Operators]
+  - [Variables]
+  - [Global Variables]
+  - [Pin Variables]
+  - [If Statements]
+  - [Loops]
+  - [Pin Control]
+    - [setPin]
+    - [readPin]
+    - [togglePin]
+  - [Wait]
+  - [Print]
+  - [Functions]
 
 ---
 
@@ -111,6 +112,23 @@ GLOBAL VARNAME
 ```plaintext
 GLOBAL counter
 GLOBAL variable
+```
+
+---
+
+### Pin Variables
+
+Another way of making a variable accessible throughout the entire program. (More clear syntax for using pins on microcontroller).
+
+**Syntax:**
+```plaintext
+pin VARNAME
+```
+
+**Examples:**
+```plaintext
+pin counter
+pin variable
 ```
 
 ---
@@ -280,7 +298,7 @@ print(x)
 
 ### Functions
 
-Define reusable code blocks.
+Define reusable code blocks. These are only blocks that will be repeatable and have no return value
 
 **Syntax:**
 ```plaintext
